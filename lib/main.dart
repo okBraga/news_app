@@ -1,8 +1,10 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-
 import 'package:flutter/material.dart';
 
 import 'package:news_app/services/news_api_service.dart';
+import 'package:news_app/view/article_page.dart';
+import 'package:news_app/view/discover_page.dart';
+import 'package:news_app/view/home_page.dart';
+import 'package:news_app/view/user_page.dart';
 
 import 'model/article.dart';
 
@@ -16,8 +18,18 @@ class MyApp extends StatelessWidget {
     const appTitle = 'News App';
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: appTitle,
-      home: MyHomePage(title: appTitle),
+      theme: ThemeData(
+        primarySwatch: Colors.grey,
+      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomePage(),
+        '/discover': (context) => const DiscoverPage(),
+        '/user': (context) => const UserPage(),
+        '/article': (context) => const ArticlePage(),
+      },
     );
   }
 }
