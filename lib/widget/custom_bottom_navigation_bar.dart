@@ -1,9 +1,15 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import '../assets/my_flutter_app_icons.dart';
+
 class CustomBottomNavigationBar extends StatelessWidget {
+  final int index;
+
   const CustomBottomNavigationBar({
-    super.key,
-  });
+    Key? key,
+    required this.index,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +24,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
       ),
       height: 85,
       child: BottomNavigationBar(
+          currentIndex: index,
           elevation: 3,
           selectedFontSize: 0.0,
           unselectedFontSize: 0.0,
@@ -28,7 +35,9 @@ class CustomBottomNavigationBar extends StatelessWidget {
               icon: Padding(
                 padding: const EdgeInsets.only(left: 50),
                 child: IconButton(
-                  icon: const Icon(Icons.home),
+                  icon: const Icon(MyFlutterApp.home),
+                  color: Colors.black.withAlpha(160),
+                  iconSize: 20,
                   onPressed: () {
                     Navigator.pushNamed(context, '/');
                   },
@@ -38,7 +47,9 @@ class CustomBottomNavigationBar extends StatelessWidget {
             ),
             BottomNavigationBarItem(
               icon: IconButton(
-                icon: const Icon(Icons.search),
+                icon: const Icon(MyFlutterApp.search),
+                iconSize: 20,
+                color: Colors.black.withAlpha(160),
                 onPressed: () {
                   Navigator.pushNamed(context, '/discover');
                 },
@@ -50,6 +61,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 50),
                 child: IconButton(
                   icon: const Icon(Icons.person),
+                  color: Colors.black.withAlpha(160),
                   onPressed: () {
                     Navigator.pushNamed(context, '/user');
                   },
@@ -58,6 +70,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
               label: 'Profile',
             ),
           ],
+          //TODO make the bottom navigation bar change the color off te tapped item
           selectedItemColor: Colors.black
           // onTap: _onItemTapped,
           ),

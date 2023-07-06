@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
           ),
           bodyLarge: TextStyle(
             color: Colors.black,
-            fontSize: 18,
+            fontSize: 17,
             fontWeight: FontWeight.bold,
           ),
         ),

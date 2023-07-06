@@ -7,9 +7,11 @@ class CustomChip extends StatelessWidget {
     this.backgroundColor,
     this.labelStyle,
     this.avatar,
+    this.labelPadding,
   });
 
-  final String label;
+  final Widget label;
+  final EdgeInsetsGeometry? labelPadding;
   final Color? backgroundColor;
   final TextStyle? labelStyle;
   final Widget? avatar;
@@ -17,8 +19,9 @@ class CustomChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Chip(
+      labelPadding: labelPadding,
       avatar: avatar,
-      label: Text(label),
+      label: label,
       labelStyle: labelStyle,
       backgroundColor: backgroundColor,
     );

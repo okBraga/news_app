@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 
 class ImageContainer extends StatelessWidget {
-  const ImageContainer({
+  ImageContainer({
     super.key,
     required this.width,
     required this.borderRadius,
     this.padding,
     this.margin,
-    required this.imageUrl,
+    this.imageUrl,
     this.child,
-    required this.height,
+    this.height,
   });
 
   final double width;
-  final double height;
+  final double? height;
   final double borderRadius;
   final EdgeInsets? padding;
   final EdgeInsets? margin;
-  final String imageUrl;
+  String? imageUrl;
   final Widget? child;
 
   @override
@@ -28,7 +28,7 @@ class ImageContainer extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadius),
         image: DecorationImage(
-          image: NetworkImage(imageUrl),
+          image: NetworkImage(imageUrl ?? 'https://i.pcmag.com/imagery/articles/00Cx7vFIetxCuKxQeqPf8mi-23.fit_lim.size_1600x900.v1643131202.jpg'),
           fit: BoxFit.cover,
         ),
       ),
